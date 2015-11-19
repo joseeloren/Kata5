@@ -18,10 +18,12 @@ public class MailListLoader {
         Class.forName("org.sqlite.JDBC");
         Connection connect = DriverManager.getConnection("jdbc:sqlite:KATA.DB");
         Statement state = connect.createStatement();
-        String query = "SELECT * FROM MAILS";
+        String query = "SELECT MAIL FROM MAILS";
         ResultSet  rs = state.executeQuery(query);
         while (rs.next()) {
-            mailList.add( rs.getString(2));
+            String mail = rs.getString(1);
+            if (mail.contains("@"))
+                mailList.add(mail);
         }
         
         rs.close();
