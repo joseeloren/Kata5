@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class MailListLoader {
-    public static ArrayList<String> read (String nameFile) throws FileNotFoundException, IOException, ClassNotFoundException, SQLException {
+    public static ArrayList<String> read (String nameFile) throws ClassNotFoundException, SQLException {
         ArrayList<String> mailList = new ArrayList<>();
         Class.forName("org.sqlite.JDBC");
         Connection connect = DriverManager.getConnection("jdbc:sqlite:KATA.DB");
